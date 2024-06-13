@@ -54,6 +54,30 @@ async def start_server(ctx):
 
 
 @bot.command()
+async def getfilenames(ctx):
+    cwd = os.getcwd()
+    files = os.listdir(cwd)
+
+    mp3 = [file for file in files if file.endswith('.mp3')]
+    mp3s = [file[:-4] for file in mp3]
+
+    await ctx.send(mp3s)
+
+
+
+@bot.command()
+async def play(ctx, *, audio):
+    # await ctx.send(f'You said: {audio}')
+    if voice:
+        source = FFmpegPCMAudio(audio + ".mp3")
+        if source:
+            voice.play(source)
+        else:
+            await ctx.send("No audio file called: " + audio + ".mp3")
+    else:
+        await ctx.send("Not connected to a VC. Type !join")
+
+@bot.command()
 async def join(ctx):
     global voice
     if ctx.author.voice:
