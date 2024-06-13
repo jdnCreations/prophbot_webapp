@@ -42,7 +42,7 @@ app.router.add_post('/webhook', handle)
 async def run_flask():
     runner = web.AppRunner(app)
     await runner.setup()
-    site = web.TCPSite(runner, "localhost", 5000)
+    site = web.TCPSite(runner, "0.0.0.0", 5000)
     await site.start()
     print('Flask server running on http://0.0.0.0:5000')
 
