@@ -120,4 +120,4 @@ async def on_ready():
     print(f'Logged in as {bot.user}')
 
 # Replace 'YOUR_DISCORD_TOKEN' with your actual Discord bot token
-bot.run("MTA3MjQyMDQ0MDU2MTE3NjY3Ng.G5o3EL.X1OqvwkkGnqexdF8MQ9Yu5VX_O5vOpvPJZi55E")
+bot.run(TOKEN)
