@@ -119,5 +119,4 @@ async def leave(ctx):
 async def on_ready():
     print(f'Logged in as {bot.user}')
 
-# Replace 'YOUR_DISCORD_TOKEN' with your actual Discord bot token
 bot.run(TOKEN)
