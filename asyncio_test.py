@@ -36,7 +36,19 @@ async def handle(request):
         return web.Response(text="no dice", status=404)
     return web.Response(text='Received', status=200)
 
+async def handle_filenames(request):
+    data = await request.json()
+    print('Received data: ', data)
+    cwd = os.getcwd()
+    files = os.listdir(cwd)
+
+    mp3 = [file for file in files if file.endswith('.mp3')]
+    mp3s = [file[:-4] for file in mp3]
+
+    return mp3s
+
 app.router.add_post('/webhook', handle)
+app.router.add_get('/home', handle_filenames)
 
 # Function to run the Flask server
 async def run_flask():
@@ -108,4 +120,4 @@ async def on_ready():
     print(f'Logged in as {bot.user}')
 
 # Replace 'YOUR_DISCORD_TOKEN' with your actual Discord bot token
-bot.run(TOKEN)
+bot.run("MTA3MjQyMDQ0MDU2MTE3NjY3Ng.G5o3EL.X1OqvwkkGnqexdF8MQ9Yu5VX_O5vOpvPJZi55E")
