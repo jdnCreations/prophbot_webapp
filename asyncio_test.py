@@ -111,7 +111,7 @@ async def leave(ctx):
             await ctx.send("Disconnected.")
 
     else:
-        await ctx.send("Not in VC.")
+        await ctx.send("Not in a VC.")
 
 
 # Event handler for bot startup
